@@ -9,7 +9,7 @@ $ wget https://raw.githubusercontent.com/limitedeternity/metasploit_in_termux/ma
 $ wget https://raw.githubusercontent.com/limitedeternity/metasploit_in_termux/master/2_metasploit.sh
 $ chmod +x 1_blacktermux.sh
 $ chmod +x 2_metasploit.sh
-$ ./1_blacktermux.sh
+$ ./1_blacktermux.sh -i
 $ ./2_metasploit.sh
 ```
 ## After install, run from terminal
