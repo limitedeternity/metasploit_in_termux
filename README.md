@@ -4,17 +4,13 @@
 
 ## How to install:
 ```bash
-source <(curl -s https://kutt.it/msf)
-```
-**Or manual**
-```bash
-pkg install wget
-
-wget https://raw.githubusercontent.com/gushmazuko/metasploit_in_termux/master/metasploit.sh
-
-chmod +x metasploit.sh
-
-./metasploit.sh
+$ pkg install wget
+$ wget https://raw.githubusercontent.com/limitedeternity/metasploit_in_termux/master/1_blacktermux.sh
+$ wget https://raw.githubusercontent.com/limitedeternity/metasploit_in_termux/master/2_metasploit.sh
+$ chmod +x 1_blacktermux.sh
+$ chmod +x 2_metasploit.sh
+$ ./1_blacktermux.sh
+$ ./2_metasploit.sh
 ```
 ## After install, run from terminal
 ```bash

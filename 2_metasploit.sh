@@ -1,5 +1,5 @@
-#!/data/data/com.termux/files/usr/bin/bash
-# Forked from: https://github.com/Hax4us/Metasploit_termux
+#!/usr/bin/env bash
+
 clear
 echo "
     +-+-+-+-+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+-+
@@ -23,7 +23,7 @@ source <(echo "c3Bpbm5lcj0oICd8JyAnLycgJy0nICdcJyApOwoKY291bnQoKXsKICBzcGluICYKI
 echo
 center "*** Dependencies installation..."
 pkg upgrade -y -o Dpkg::Options::="--force-confnew"
-pkg install -y autoconf bison clang coreutils curl findutils apr apr-util postgresql openssl readline libffi libgmp libpcap libsqlite libgrpc libtool libxml2 libxslt ncurses make ruby ncurses-utils ncurses git wget unzip zip tar termux-tools termux-elf-cleaner pkg-config git -o Dpkg::Options::="--force-confnew"
+pkg install -y autoconf bison clang coreutils curl findutils apr apr-util postgresql openssl readline libffi libgmp libpcap libsqlite libgrpc libtool libxml2 libxslt ncurses make ruby2 ncurses-utils ncurses git wget unzip zip tar termux-tools termux-elf-cleaner pkg-config git -o Dpkg::Options::="--force-confnew"
 
 echo
 center "*** Fix ruby BigDecimal"
@@ -67,7 +67,7 @@ termux-elf-cleaner /data/data/com.termux/files/usr/lib/ruby/gems/2.4.0/gems/pg-0
 echo
 center "*** Database configuration..."
 cd $HOME/metasploit-framework/config
-curl -sLO https://raw.githubusercontent.com/gushmazuko/metasploit_in_termux/master/database.yml
+curl -sLO https://raw.githubusercontent.com/limitedeternity/metasploit_in_termux/master/database.yml
 
 mkdir -p $PREFIX/var/lib/postgresql
 initdb $PREFIX/var/lib/postgresql
@@ -75,9 +75,10 @@ initdb $PREFIX/var/lib/postgresql
 pg_ctl -D $PREFIX/var/lib/postgresql start
 createuser msf
 createdb msf_database
+pg_ctl -D $PREFIX/var/lib/postgresql stop
 
 cd $HOME
-curl -sLO https://raw.githubusercontent.com/gushmazuko/metasploit_in_termux/master/postgresql_ctl.sh
+curl -sLO https://raw.githubusercontent.com/limitedeternity/metasploit_in_termux/master/postgresql_ctl.sh
 chmod +x postgresql_ctl.sh
 
 echo
